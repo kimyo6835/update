@@ -104,14 +104,18 @@ saver.restore(sess, checkpoint_path)
 
 # ------------ load image and padd it to zero to be consistent with 32x32 tiles ---------------------------------- #
 path_to_raw = '/home/gimmedatcudaspeedmmmh/Desktop/NeuronGuys/JIN/capsule_test/idontwanna/sample_stack/d_300_3mg_silver/'
-wireindex = np.range(50, 185 + 1)
+
+save_path = '/home/gimmedatcudaspeedmmmh/Desktop/NeuronGuys/JIN/capsule_test/idontwanna/sample_stack/d_300_3mg_silver/savefigures'
+#wireindex = np.range(50, 185 + 1)
+
+wireindex = np.range(50, 52)
 
 for index in wireindex:
 
-    xproj_fn = 'x_proj_%d.png' % index
-    yproj_fn = 'y_proj_%d.png' % index
-    intensity_fn = 'intensity_%d.png' % index
-    xy_add_fn = 'xy_proj_add_%d.png' % index
+    xproj_fn = '%s/x_proj_%d.png' % (save_path, index)
+    yproj_fn = '%s/y_proj_%d.png' % (save_path, index)
+    intensity_fn = '%s/intensity_%d.png' % (save_path, index)
+    xy_add_fn = '%s/xy_proj_add_%d.png' % (save_path, index)
 
     padded_image, padded_image_shape = wires_functions.padding_image(path_to_raw, index, imsize)
 
